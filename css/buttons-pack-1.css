@@ -1,3 +1,7 @@
+:root {
+  --btn-v1-color: #C6A27A;
+}
+
 /* Button 01 – Soft Glow Sweep
    Pane klass "df-btn-01" sellele GRUPILE, kus sees on shape + text.
    Showit otsustab tausta, fondi, suuruse, nurga.
