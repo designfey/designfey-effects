@@ -1,0 +1,48 @@
+/* Button 01 – Soft Glow Sweep
+   Pane klass "df-btn-01" sellele GRUPILE, kus sees on shape + text.
+   Showit otsustab tausta, fondi, suuruse, nurga.
+*/
+
+.df-btn-01 {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-decoration: none;
+
+  /* las showit hoiab tausta, meie lisame ainult liikumise + varju */
+  transition:
+    transform 260ms ease,
+    box-shadow 260ms ease;
+  overflow: visible;
+}
+
+/* glow-kiht (uuendatud – pehmem, vähem “kasti” tunnet) */
+.df-btn-01::before {
+  content: "";
+  position: absolute;
+  inset: -48px;            /* rohkem ruumi glowl, vähem kesk-kasti */
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at 50% 50%,
+    color-mix(in srgb, var(--btn-v1-color) 55%, transparent),
+    transparent 70%
+  );
+  /* kui color-mix ei tööta, võime hiljem minna lihtsa rgba peale */
+
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
+
+  transform: translateY(10px) scale(0.9);
+  filter: blur(10px);       /* väiksem blur, vähem “telliskivi” keskel */
+  transition:
+    opacity 480ms ease,
+    transform 480ms ease;
+}
+
+.df-btn-01:hover::before {
+  opacity: 0.85;
+  transform: translateY(0) scale(1);
+}
