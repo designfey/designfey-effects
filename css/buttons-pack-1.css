@@ -1,44 +1,42 @@
-:root {
-  --btn-v1-color: #C6A27A;
-}
+/* 
+========================================
+Designfey Motion Pack 1 – Buttons
+========================================
 
-/* Button 01 – Soft Glow Sweep
-   Pane klass "df-btn-01" sellele GRUPILE, kus sees on shape + text.
-   Showit otsustab tausta, fondi, suuruse, nurga.
+Button 01 – Soft Glow Sweep      (.df-btn-01)
+Button 02 – Text Highlight Bar   (.df-btn-02)
+Button 03 – Offset Plate         (.df-btn-03)
+Button 04 – Inner Fill Flip      (.df-btn-04)
+Button 05 – Pastel Wash Fill     (.df-btn-05)
+Button 06 – Soft Zoom            (.df-btn-06)
+Button 07 – Soft Underline       (.df-btn-07)
+Button 08 – Corner Frame Reveal  (.df-btn-02)
+Button 09 – Icon Slide           (.df-btn-09)
+Button 10 – Halo Line            (.df-btn-10)
 */
 
-.df-btn-01 {
-  position: relative;
-  cursor: pointer;
-  text-decoration: none;
-  overflow: visible;
+/* Button 01 – Soft Glow Sweep */
 
-  /* las Showit hoiab laiuse/kõrguse/joondused
-     meie lisame ainult glowi + varju */
+.df-btn-01 {
   transition:
     transform 260ms ease,
     box-shadow 260ms ease;
 }
 
-/* glow-kiht (uuendatud – pehmem, vähem “kasti” tunnet) */
 .df-btn-01::before {
   content: "";
   position: absolute;
-  inset: -48px;            /* rohkem ruumi glowl, vähem kesk-kasti */
+  inset: -16px;
   border-radius: inherit;
-  background: radial-gradient(
-    circle at 50% 50%,
-    color-mix(in srgb, var(--btn-v1-color) 55%, transparent),
-    transparent 70%
-  );
-  /* kui color-mix ei tööta, võime hiljem minna lihtsa rgba peale */
+  background: radial-gradient(color-mix(in srgb, var(--btn-v1-color) 90%, transparent),
+      transparent 70%);
 
   opacity: 0;
   pointer-events: none;
   z-index: -1;
 
   transform: translateY(10px) scale(0.9);
-  filter: blur(10px);       /* väiksem blur, vähem “telliskivi” keskel */
+  filter: blur(8px);
   transition:
     opacity 480ms ease,
     transform 480ms ease;
@@ -47,4 +45,276 @@
 .df-btn-01:hover::before {
   opacity: 0.85;
   transform: translateY(0) scale(1);
+}
+
+/* Button 02 – Text Highlight Bar */
+
+.df-btn-02 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 0;
+
+}
+
+.df-btn-02::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  border-radius: 999px;
+
+  left: 14%;
+  right: 14%;
+  height: 55%;
+  top: 55%;
+
+
+  background: color-mix(in srgb, var(--btn-v1-color) 45%, transparent);
+
+  transform-origin: center center;
+  transform: scaleX(0);
+
+  transition: transform 220ms ease-out;
+}
+
+.df-btn-02:hover::before {
+  transform: scaleX(1);
+}
+
+/* Button 03 – Offset Plate */
+
+.df-btn-03 {
+  z-index: 0;
+
+}
+
+.df-btn-03::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: -1;
+
+  background: color-mix(in srgb, var(--btn-v1-color) 22%, transparent);
+
+
+  transform: translate(-4px, -4px);
+  opacity: 0;
+
+  transition:
+    transform 260ms ease-out,
+    opacity 260ms ease-out;
+}
+
+
+.df-btn-03:hover::before {
+  transform: translate(4px, 4px);
+  opacity: 1;
+}
+
+/* Button 04 – Inner Fill Flip */
+
+.df-btn-04 {
+  overflow: hidden;
+  z-index: 0;
+  transition: border-color 220ms ease-out;
+}
+
+.df-btn-04::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 1;
+
+  background: color-mix(in srgb, var(--btn-v1-color) 24%, transparent);
+
+  transform-origin: center center;
+  transform: scaleX(0);
+  transition: transform 220ms ease-out;
+}
+
+.df-btn-04:hover::before {
+  transform: scaleX(1);
+}
+
+
+.df-btn-04:hover {
+  border-color: var(--btn-v1-color);
+}
+
+
+
+
+/* Button 05 – Pastel Wash Fill */
+
+.df-btn-05::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: -1;
+
+  background: linear-gradient(90deg,
+      color-mix(in srgb, var(--btn-v1-color) 40%, transparent) 0%,
+      color-mix(in srgb, var(--btn-v1-color) 40%, transparent) 40%,
+      color-mix(in srgb, var(--btn-v1-color) 10%, transparent) 75%,
+      transparent 100%);
+
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 0.45s ease-in-out;
+}
+
+.df-btn-05:hover::before {
+  transform: scaleX(1);
+}
+
+/* Button 06 – Soft Zoom */
+
+.df-btn-06 {
+  display: inline-block;
+  transform-origin: center center;
+  transform: scale(1);
+  transition: transform 220ms ease-out;
+}
+
+.df-btn-06:hover {
+  transform: scale(1.04) !important;
+}
+
+/* Button 07 – Soft Underline */
+
+.df-btn-07::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 100%;
+  max-width: 100%;
+  height: 2px;
+  background-color: var(--btn-v1-color);
+  border-radius: 999px;
+
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  transition: transform 260ms ease;
+}
+
+.df-btn-07:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* Button 08 – Corner Frame Reveal */
+
+.df-btn-08 {
+  overflow: hidden;
+  z-index: 0;
+}
+
+.df-btn-08::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 1;
+
+  background:
+
+    linear-gradient(to right, var(--btn-v1-color), var(--btn-v1-color)) top left / 0 1px no-repeat,
+
+    linear-gradient(to right, var(--btn-v1-color), var(--btn-v1-color)) bottom right / 0 1px no-repeat;
+
+  transition: background-size 260ms ease-out;
+}
+
+.df-btn-08::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 1;
+
+  background:
+    linear-gradient(to bottom, var(--btn-v1-color), var(--btn-v1-color)) top right / 1px 0 no-repeat,
+    linear-gradient(to bottom, var(--btn-v1-color), var(--btn-v1-color)) bottom left / 1px 0 no-repeat;
+
+  transition: background-size 260ms ease-out;
+}
+
+.df-btn-08:hover::before {
+  background-size:
+    100% 1px,
+    100% 1px;
+}
+
+.df-btn-08:hover::after {
+  background-size:
+    1px 100%,
+    1px 100%;
+}
+
+
+/* Button 09 – Icon Slide */
+
+.df-btn-09 {
+  position: relative;
+  padding-right: 1.8em;
+}
+
+.df-btn-09::after {
+  content: "→";
+  position: absolute;
+  top: 45%;
+  right: 0.8em;
+  transform: translateY(-40%) translateX(0);
+  font-size: 1.35em;
+
+  opacity: 0;
+  transition:
+    transform 200ms ease-out,
+    opacity 200ms ease-out;
+
+  color: var(--btn-v1-color);
+}
+
+.df-btn-09:hover::after {
+  opacity: 1;
+  transform: translateY(-45%) translateX(10px);
+}
+
+
+
+/* Button 10 – Halo Line */
+
+.df-btn-10 {
+  z-index: 0;
+}
+
+.df-btn-10::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: -1;
+
+  border: 1px solid color-mix(in srgb, var(--btn-v1-color) 65%, transparent);
+
+  opacity: 0;
+  transform: scale(0.94);
+  transition:
+    opacity 220ms ease-out,
+    transform 220ms ease-out;
+}
+
+.df-btn-10:hover::before {
+  opacity: 1;
+  transform: scale(1);
 }
