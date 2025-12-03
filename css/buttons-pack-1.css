@@ -9,17 +9,15 @@
 
 .df-btn-01 {
   position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   cursor: pointer;
   text-decoration: none;
+  overflow: visible;
 
-  /* las showit hoiab tausta, meie lisame ainult liikumise + varju */
+  /* las Showit hoiab laiuse/kõrguse/joondused
+     meie lisame ainult glowi + varju */
   transition:
     transform 260ms ease,
     box-shadow 260ms ease;
-  overflow: visible;
 }
 
 /* glow-kiht (uuendatud – pehmem, vähem “kasti” tunnet) */
