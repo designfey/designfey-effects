@@ -1,0 +1,417 @@
+:root {
+  --btn-v1-color: #B28C5A; /* uus toon */
+}
+
+
+/* Link 01 – Center Underline Drift */
+
+
+.df-link-01 {
+  position: relative;
+  display: inline-block;
+}
+
+
+.df-link-01::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+
+
+  width: 0;
+  height: 1px;
+  border-radius: 999px;
+
+
+  background-color: var(--btn-v1-color);
+
+
+  pointer-events: none;
+  transition: width 220ms ease-out;
+}
+
+
+.df-link-01:hover::after {
+  width: 100%;
+}
+
+
+
+
+/* Link 02 – Slide-In Underline */
+
+
+.df-link-02 {
+  display: inline-block;
+  text-decoration: none;
+}
+
+
+.df-link-02::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+
+
+  background-color: var(--btn-v1-color);
+  border-radius: 999px;
+
+
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 220ms ease-out;
+}
+
+
+.df-link-02:hover::after {
+  transform: scaleX(1);
+}
+
+
+/* Link 03 – Double Underline Whisper */
+
+
+.df-link-03 {
+  display: inline-block;
+  text-decoration: none;
+}
+
+
+.df-link-03::before,
+.df-link-03::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center center;
+
+
+  width: 100%;
+  height: 1px;
+  background-color: var(--btn-v1-color);
+  border-radius: 999px;
+
+
+  opacity: 0;
+  transition:
+    transform 220ms ease-out,
+    opacity 220ms ease-out;
+}
+
+
+.df-link-03::before {
+  bottom: 2px;
+}
+
+
+.df-link-03::after {
+  bottom: 0;
+}
+
+
+.df-link-03:hover::before,
+.df-link-03:hover::after {
+  transform: translateX(-50%) scaleX(1);
+  opacity: 1;
+}
+
+
+/* Link 04 – Accent Tag Pill */
+
+
+.df-link-04 {
+  display: inline-flex;
+  align-items: center;
+  z-index: 0;
+  text-decoration: none;
+}
+
+
+.df-link-04::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+
+
+  left: -0.45em;
+  right: -0.45em;
+
+
+  height: 1.8em;
+  top: 50%;
+  transform: translateY(-50%) scaleX(0.2);
+  transform-origin: center center;
+
+
+  border-radius: 0;
+
+
+  background: color-mix(in srgb, var(--btn-v1-color) 35%, transparent);
+
+
+  opacity: 0;
+  transition:
+    transform 220ms ease-out,
+    opacity 220ms ease-out;
+}
+
+
+.df-link-04:hover::before {
+  opacity: 1;
+  transform: translateY(-50%) scaleX(1);
+}
+
+
+/* Link 05 – Accent Dot Lead */
+
+
+.df-link-05 {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  text-decoration: none;
+}
+
+
+.df-link-05::before {
+  content: "";
+  flex: 0 0 0.35em;
+  height: 0.35em;
+  border-radius: 999px;
+  background-color: var(--btn-v1-color);
+
+
+  opacity: 0;
+  transform: translateX(-4px);
+  transition:
+    opacity 200ms ease-out,
+    transform 200ms ease-out;
+}
+
+
+.df-link-05:hover::before {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+/* Link 06 – Soft Upperline */
+
+
+.df-link-06 {
+  display: inline-block;
+  text-decoration: none;
+}
+
+
+.df-link-06::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+
+
+  top: 0;
+  height: 1px;
+
+
+  background-color: var(--btn-v1-color);
+  border-radius: 999px;
+
+
+  transform-origin: center center;
+  transform: scaleX(0);
+  opacity: 0;
+
+
+  transition:
+    transform 220ms ease-out,
+    opacity 220ms ease-out;
+}
+
+
+.df-link-06:hover::before {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+
+/* Link 07 – Split Underline Gap */
+
+
+.df-link-07 {
+  display: inline-block;
+  text-decoration: none;
+}
+
+
+.df-link-07::before,
+.df-link-07::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  height: 1px;
+  background-color: var(--btn-v1-color);
+  border-radius: 999px;
+
+
+  width: 0;
+  transition: width 220ms ease-out;
+}
+
+
+.df-link-07::before {
+  left: 0;
+  transform-origin: left center;
+}
+
+
+.df-link-07::after {
+  right: 0;
+  transform-origin: right center;
+}
+
+
+
+
+.df-link-07:hover::before,
+.df-link-07:hover::after {
+  width: 42%;
+}
+
+
+/* Link 08 – Drawer Highlight Bar */
+
+
+.df-link-08 {
+  display: inline-flex;
+  align-items: center;
+  z-index: 0;
+  text-decoration: none;
+}
+
+
+.df-link-08::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+
+
+  left: -0.4em;
+  right: -0.4em;
+  height: 0.55em;
+  bottom: -0.1em;
+
+
+  border-radius: 0;
+
+
+  background: color-mix(in srgb, var(--btn-v1-color) 38%, transparent);
+
+
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 220ms ease-out;
+}
+
+
+.df-link-08:hover::before {
+  transform: scaleX(1);
+}
+
+
+
+
+/* Link 09 – Full Highlight Fill */
+
+
+.df-link-09 {
+  display: inline-flex;
+  align-items: center;
+  z-index: 0;
+  text-decoration: none;
+}
+
+
+.df-link-09::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+
+
+  left: -0.6em;
+  right: -0.6em;
+  top: -0.35em;
+  bottom: -0.35em;
+
+
+  border-radius: 0;
+
+
+  background: color-mix(in srgb, var(--btn-v1-color) 40%, transparent);
+
+
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 220ms ease-out;
+}
+
+
+.df-link-09:hover::before {
+  transform: scaleX(1);
+}
+
+
+
+
+/* Link 10 – Accent Frame */
+
+
+.df-link-10 {
+  display: inline-flex;
+  align-items: center;
+  z-index: 0;
+  text-decoration: none;
+}
+
+
+.df-link-10::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+
+
+  left: -0.6em;
+  right: -0.6em;
+  top: -0.4em;
+  bottom: -0.4em;
+
+
+  border-radius: 0;
+
+
+  border: 1px solid color-mix(in srgb, var(--btn-v1-color) 80%, transparent);
+
+
+  opacity: 0;
+  transform: scale(0.85);
+  transition:
+    opacity 220ms ease-out,
+    transform 220ms ease-out;
+}
+
+
+.df-link-10:hover::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
