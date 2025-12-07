@@ -1,0 +1,127 @@
+/* HERO – mullid jooksevad edasi-tagasi (CSS-only) */
+.hero-bubbles {
+  overflow: hidden;
+}
+
+
+/* overlay pildi peal, teksti all */
+.hero-bubbles::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+
+
+  /* timmitavad muutujad */
+  background: var(--bubble-color, rgba(255, 255, 255, 35));
+  -webkit-mask-image: var(--bubble-mask, url("https://raw.githubusercontent.com/pizza3/asset/master/natureSmaller.png"));
+  mask-image: var(--bubble-mask, url("https://raw.githubusercontent.com/pizza3/asset/master/natureSmaller.png"));
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: var(--bubble-size, 7100% 100%);
+  mask-size: var(--bubble-size, 7100% 100%);
+  -webkit-mask-position: 0 0;
+  mask-position: 0 0;
+
+
+  /* pehme tunnetus (soovi järgi) */
+  mix-blend-mode: soft-light;
+  filter: blur(2px);
+
+
+  /* ⟵ edasi-tagasi liikumine */
+  animation: hero-bubble-x var(--bubble-dur, 3.5s) steps(var(--bubble-frames, 70)) infinite alternate;
+}
+
+
+/* kaadrite animatsioon X-suunas */
+@-webkit-keyframes hero-bubble-x {
+  from {
+    -webkit-mask-position: 0 0
+  }
+
+
+  to {
+    -webkit-mask-position: 100% 0
+  }
+}
+
+
+@keyframes hero-bubble-x {
+  from {
+    mask-position: 0 0
+  }
+
+
+  to {
+    mask-position: 100% 0
+  }
+}
+
+
+/* valikulised utiliidid */
+.hero-bubbles .on-top {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* kui overlay katab teksti */
+.hero-bubbles.rtl::before {
+  transform: scaleX(-1);
+}
+
+
+/* suund paremalt→vasakule */
+.hero-bubbles.diag::before {
+  transform: rotate(-12deg);
+}
+
+
+/* diagonaalne jooks */
+
+
+
+
+
+
+/* Tekst ise laguneb – pausita edasi↔tagasi */
+
+.title-dissolve {
+  display: inline-block;
+  /* oluline: mitte inline */
+  -webkit-mask-image: url("https://raw.githubusercontent.com/pizza3/asset/master/natureSmaller.png");
+  mask-image: url("https://raw.githubusercontent.com/pizza3/asset/master/natureSmaller.png");
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 7100% 100%;
+  mask-size: 7100% 100%;
+  -webkit-mask-position: 0 0;
+  mask-position: 0 0;
+
+  /* pidev edasi↔tagasi, ilma pausita */
+  -webkit-animation: title-dissolve 4.5s steps(70) infinite alternate;
+  animation: title-dissolve 3s steps(70) infinite alternate;
+}
+
+/* mask liigub vasakult paremale ja tagasi */
+@-webkit-keyframes title-dissolve {
+  from {
+    -webkit-mask-position: 0 0;
+  }
+
+  to {
+    -webkit-mask-position: 100% 0;
+  }
+}
+
+@keyframes title-dissolve {
+  from {
+    mask-position: 0 0;
+  }
+
+  to {
+    mask-position: 100% 0;
+  }
+}
