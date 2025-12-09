@@ -17,11 +17,7 @@ Button 10 – Halo Line            (.df-btn-10)
 
 /* Button 01 – Soft Glow Sweep */
 
-.df-btn-01 {
-   position: relative;
-  display: inline-block;
-  overflow: hidden;
-  border-radius: inherit; 
+.df-btn-01 { 
   transition:
     transform 260ms ease,
     box-shadow 260ms ease;
