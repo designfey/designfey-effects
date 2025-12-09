@@ -1,0 +1,42 @@
+/* BUTTON 01 – kõik tekst, font, värv, taust jne tulevad builderist.
+   Efekt lisab ainult glowi hoveril. */
+
+.df-btn-01 {
+  position: relative;  /* ainult ankur pseudo-elemendile */
+  z-index: 0;
+  border: none !important;
+  background: transparent !important;  
+}
+
+/* Glow kiht – ALGUSES PEIDUS */
+.df-btn-01::before {
+  content: "";
+  position: absolute;
+  inset: -18px;            /* kui glow liiga suur/väike, mängi selle numbriga */
+  border-radius: inherit;  /* kasutab sama ümardust, mis nupp builderist */
+
+  /* sinu soovitud taustastruktuur – värv otse builderi tekstivärvist */
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, currentColor 90%, transparent),
+    transparent 70%
+  );
+
+  filter: blur(10px);
+  opacity: 0;              /* alguses 0, ehk nähtamatu */
+  pointer-events: none;
+  z-index: -1;
+
+  transform: scale(0.9);
+  transition:
+    opacity 220ms ease,
+    transform 220ms ease,
+    filter 220ms ease;
+}
+
+/* HOVER – ainult glow ilmub, nupp ise jääb täpselt builderi stiiliks */
+.df-btn-01:hover::before {
+  opacity: 0.95;
+  transform: scale(1.03);
+  filter: blur(12px);
+}
